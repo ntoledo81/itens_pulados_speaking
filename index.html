@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análises Itens Pulados 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background-color: #F2F2F2; /* Edify Light Gray */
+            color: #242426; /* Edify Black */
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #4219B5; /* Edify Dark Blue */
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #FFFFFF; /* Edify White */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            color: #4219B5; /* Edify Dark Blue */
+            border-bottom: 2px solid #FFC20E; /* Edify Yellow */
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #F2F2F2;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CD1F6; /* Edify Light Blue */
+            color: #242426;
+        }
+        tbody tr {
+            transition: all 0.3s ease;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #F2F2F2;
+        }
+        .chart-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+        }
+        .filter {
+            margin-bottom: 20px;
+        }
+        select {
+            font-family: 'Ubuntu', sans-serif;
+            padding: 5px;
+            border: 1px solid #4219B5;
+            border-radius: 4px;
+        }
+        .highlight {
+            background-color: #00AA9E !important; /* Edify Green */
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Análises Itens Pulados 2025</h1>
+
+        <div class="section">
+            <h2>Resumo de Ocorrências por Ano Escolar</h2>
+            <table id="schoolYearTable">
+                <thead>
+                    <tr>
+                        <th>Ano</th>
+                        <th>Ano Escolar</th>
+                        <th>Estudantes</th>
+                        <th>Total Execuções</th>
+                        <th>Atividades Únicas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>2025</td><td>6° ano</td><td>4519</td><td>269047</td><td>102853</td></tr>
+                    <tr><td>2025</td><td>7° ano</td><td>3863</td><td>204729</td><td>80397</td></tr>
+                    <tr><td>2025</td><td>5° ano</td><td>3697</td><td>215280</td><td>80430</td></tr>
+                    <tr><td>2025</td><td>8° ano</td><td>3623</td><td>292017</td><td>101361</td></tr>
+                    <tr><td>2025</td><td>4° ano</td><td>3557</td><td>200943</td><td>76997</td></tr>
+                    <tr><td>2025</td><td>3° ano</td><td>3340</td><td>174958</td><td>66619</td></tr>
+                    <tr><td>2025</td><td>9° ano</td><td>2782</td><td>208684</td><td>77969</td></tr>
+                    <tr><td>2025</td><td>2° ano</td><td>2426</td><td>133996</td><td>48580</td></tr>
+                    <tr><td>2025</td><td>1° ano</td><td>1997</td><td>97695</td><td>36194</td></tr>
+                </tbody>
+            </table>
+            <div class="chart-container">
+                <canvas id="schoolYearChart"></canvas>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Resumo por Volume</h2>
+            <div class="filter">
+                <label for="sortBy">Sort by: </label>
+                <select id="sortBy">
+                    <option value="execucoes_puladas">Execuções Puladas</option>
+                    <option value="atividades_distintas">Atividades Distintas</option>
+                    <option value="volume">Volume</option>
+                </select>
+            </div>
+            <table id="volumeTable">
+                <thead>
+                    <tr>
+                        <th>Ano</th>
+                        <th>Volume</th>
+                        <th>Atividades Distintas</th>
+                        <th>Execuções Puladas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>2025</td><td>Greenhouse</td><td>136</td><td>197686</td></tr>
+                    <tr><td>2025</td><td>Language 1</td><td>127</td><td>143401</td></tr>
+                    <tr><td>2025</td><td>Language 8</td><td>249</td><td>95387</td></tr>
+                    <tr><td>2025</td><td>Language 9</td><td>250</td><td>77317</td></tr>
+                    <tr><td>2025</td><td>Language 6</td><td>254</td><td>72635</td></tr>
+                    <tr><td>2025</td><td>Language 7</td><td>254</td><td>71582</td></tr>
+                    <tr><td>2025</td><td>Angles 3</td><td>48</td><td>66976</td></tr>
+                    <tr><td>2025</td><td>Mind Flow 1</td><td>94</td><td>60263</td></tr>
+                    <tr><td>2025</td><td>Mind Flow 3</td><td>95</td><td>57793</td></tr>
+                    <tr><td>2025</td><td>Language 3</td><td>120</td><td>56814</td></tr>
+                    <tr><td>2025</td><td>Language 4</td><td>119</td><td>56171</td></tr>
+                    <tr><td>2025</td><td>Fun Quest 1</td><td>62</td><td>53443</td></tr>
+                    <tr><td>2025</td><td>Language 5</td><td>123</td><td>52480</td></tr>
+                    <tr><td>2025</td><td>Curious Percy Lemon A</td><td>63</td><td>49430</td></tr>
+                    <tr><td>2025</td><td>Language 2</td><td>121</td><td>48796</td></tr>
+                    <tr><td>2025</td><td>Angles 5</td><td>78</td><td>47394</td></tr>
+                    <tr><td>2025</td><td>Fun Quest 3</td><td>60</td><td>41739</td></tr>
+                    <tr><td>2025</td><td>Fun Quest 5</td><td>61</td><td>37841</td></tr>
+                    <tr><td>2025</td><td>Fun Quest 2</td><td>61</td><td>36468</td></tr>
+                    <tr><td>2025</td><td>High Resolution 3</td><td>54</td><td>36389</td></tr>
+                    <tr><td>2025</td><td>Curious Percy Orange A</td><td>60</td><td>32228</td></tr>
+                    <tr><td>2025</td><td>Fun Quest 4</td><td>61</td><td>30092</td></tr>
+                    <tr><td>2025</td><td>Angles 6</td><td>42</td><td>28544</td></tr>
+                    <tr><td>2025</td><td>Angles 1</td><td>47</td><td>28220</td></tr>
+                    <tr><td>2025</td><td>Curious Percy Lemon B</td><td>60</td><td>25455</td></tr>
+                    <tr><td>2025</td><td>Fun Quest 6</td><td>62</td><td>24114</td></tr>
+                    <tr><td>2025</td><td>Angles 2</td><td>50</td><td>20646</td></tr>
+                    <tr><td>2025</td><td>Mind Flow 2</td><td>60</td><td>19328</td></tr>
+                    <tr><td>2025</td><td>Angles 4</td><td>26</td><td>18963</td></tr>
+                    <tr><td>2025</td><td>Infinity 1</td><td>71</td><td>16973</td></tr>
+                    <tr><td>2025</td><td>High Resolution 4</td><td>50</td><td>16729</td></tr>
+                    <tr><td>2025</td><td>High Resolution 5</td><td>49</td><td>15958</td></tr>
+                    <tr><td>2025</td><td>Amplify 1</td><td>54</td><td>15016</td></tr>
+                    <tr><td>2025</td><td>Curious Percy Orange B</td><td>60</td><td>12853</td></tr>
+                    <tr><td>2025</td><td>Infinity 2</td><td>67</td><td>11498</td></tr>
+                    <tr><td>2025</td><td>Mind Flow 4</td><td>53</td><td>7979</td></tr>
+                    <tr><td>2025</td><td>High Resolution 6</td><td>65</td><td>7627</td></tr>
+                    <tr><td>2025</td><td>High Resolution 2</td><td>54</td><td>3866</td></tr>
+                    <tr><td>2025</td><td>Spelling Bee 1</td><td>10</td><td>3683</td></tr>
+                    <tr><td>2025</td><td>High Resolution 1</td><td>55</td><td>2519</td></tr>
+                    <tr><td>2025</td><td>Amplify 2</td><td>55</td><td>2050</td></tr>
+                    <tr><td>2025</td><td>Infinity 3</td><td>68</td><td>1898</td></tr>
+                </tbody>
+            </table>
+            <div class="chart-container">
+                <canvas id="volumeChart"></canvas>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Impacto %</h2>
+            <div class="filter">
+                <label for="volumeFilter">Filter by Volume: </label>
+                <select id="volumeFilter">
+                    <option value="all">All</option>
+                    <option value="Greenhouse">Greenhouse</option>
+                    <option value="Language 1">Language 1</option>
+                    <option value="Language 8">Language 8</option>
+                    <option value="Language 9">Language 9</option>
+                    <option value="Language 6">Language 6</option>
+                </select>
+            </div>
+            <table id="impactTable">
+                <thead>
+                    <tr>
+                        <th>Volume</th>
+                        <th>Skipped</th>
+                        <th>Total Atividades Realizadas</th>
+                        <th>% Atividades</th>
+                        <th>Total Itens Realizados</th>
+                        <th>% Itens</th>
+                        <th>Itens Unicos Realizados</th>
+                        <th>% Unicos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-volume="Greenhouse"><td>Greenhouse</td><td>Skipped Yes</td><td>200671</td><td>45.97%</td><td>215512</td><td>72.77%</td><td>529843</td><td>49.52%</td></tr>
+                    <tr data-volume="Greenhouse"><td>Greenhouse</td><td>Skipped No</td><td>235889</td><td>54.03%</td><td>80663</td><td>27.23%</td><td>540200</td><td>50.48%</td></tr>
+                    <tr data-volume="Language 1"><td>Language 1</td><td>Skipped Yes</td><td>145060</td><td>24.84%</td><td>349940</td><td>46.61%</td><td>539872</td><td>49.99%</td></tr>
+                    <tr data-volume="Language 1"><td>Language 1</td><td>Skipped No</td><td>439034</td><td>75.16%</td><td>400851</td><td>53.39%</td><td>540169</td><td>50.01%</td></tr>
+                    <tr data-volume="Language 8"><td>Language 8</td><td>Skipped Yes</td><td>96657</td><td>44.42%</td><td>107766</td><td>85.13%</td><td>532088</td><td>49.93%</td></tr>
+                    <tr data-volume="Language 8"><td>Language 8</td><td>Skipped No</td><td>120944</td><td>55.58%</td><td>18826</td><td>14.87%</td><td>533563</td><td>50.07%</td></tr>
+                    <tr data-volume="Language 9"><td>Language 9</td><td>Skipped Yes</td><td>77632</td><td>41.84%</td><td>79031</td><td>84.88%</td><td>525028</td><td>49.48%</td></tr>
+                    <tr data-volume="Language 9"><td>Language 9</td><td>Skipped No</td><td>107926</td><td>58.16%</td><td>14077</td><td>15.12%</td><td>535975</td><td>50.52%</td></tr>
+                    <tr data-volume="Language 6"><td>Language 6</td><td>Skipped Yes</td><td>73626</td><td>34.03%</td><td>81712</td><td>59.71%</td><td>534498</td><td>49.83%</td></tr>
+                    <tr data-volume="Language 6"><td>Language 6</td><td>Skipped No</td><td>142707</td><td>65.97%</td><td>55143</td><td>40.29%</td><td>538048</td><td>50.17%</td></tr>
+                </tbody>
+            </table>
+            <div class="chart-container">
+                <canvas id="impactChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // School Year Chart
+        const schoolYearCtx = document.getElementById('schoolYearChart').getContext('2d');
+        const schoolYearData = {
+            labels: ['6° ano', '7° ano', '5° ano', '8° ano', '4° ano', '3° ano', '9° ano', '2° ano', '1° ano'],
+            datasets: [{
+                label: 'Estudantes',
+                data: [4519, 3863, 3697, 3623, 3557, 3340, 2782, 2426, 1997],
+                backgroundColor: '#4CD1F6', // Edify Light Blue
+                borderColor: '#4219B5', // Edify Dark Blue
+                borderWidth: 1,
+                borderRadius: 5,
+                borderSkipped: false
+            }, {
+                label: 'Total Execuções',
+                data: [269047, 204729, 215280, 292017, 200943, 174958, 208684, 133996, 97695],
+                backgroundColor: '#00AA9E', // Edify Green
+                borderColor: '#4219B5',
+                borderWidth: 1,
+                borderRadius: 5,
+                borderSkipped: false
+            }, {
+                label: 'Atividades Únicas',
+                data: [102853, 80397, 80430, 101361, 76997, 66619, 77969, 48580, 36194],
+                backgroundColor: '#FFC20E', // Edify Yellow
+                borderColor: '#4219B5',
+                borderWidth: 1,
+                borderRadius: 5,
+                borderSkipped: false
+            }]
+        };
+        new Chart(schoolYearCtx, {
+            type: 'bar',
+            data: schoolYearData,
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutBounce'
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Volume Chart
+        const volumeCtx = document.getElementById('volumeChart').getContext('2d');
+        const volumeLabels = ['Greenhouse', 'Language 1', 'Language 8', 'Language 9', 'Language 6', 'Language 7', 'Angles 3', 'Mind Flow 1', 'Mind Flow 3', 'Language 3', 'Language 4', 'Fun Quest 1', 'Language 5', 'Curious Percy Lemon A', 'Language 2', 'Angles 5', 'Fun Quest 3', 'Fun Quest 5', 'Fun Quest 2', 'High Resolution 3', 'Curious Percy Orange A', 'Fun Quest 4', 'Angles 6', 'Angles 1', 'Curious Percy Lemon B', 'Fun Quest 6', 'Angles 2', 'Mind Flow 2', 'Angles 4', 'Infinity 1', 'High Resolution 4', 'High Resolution 5', 'Amplify 1', 'Curious Percy Orange B', 'Infinity 2', 'Mind Flow 4', 'High Resolution 6', 'High Resolution 2', 'Spelling Bee 1', 'High Resolution 1', 'Amplify 2', 'Infinity 3'];
+        const volumeExecucoes = [197686, 143401, 95387, 77317, 72635, 71582, 66976, 60263, 57793, 56814, 56171, 53443, 52480, 49430, 48796, 47394, 41739, 37841, 36468, 36389, 32228, 30092, 28544, 28220, 25455, 24114, 20646, 19328, 18963, 16973, 16729, 15958, 15016, 12853, 11498, 7979, 7627, 3866, 3683, 2519, 2050, 1898];
+        const volumeAtividades = [136, 127, 249, 250, 254, 254, 48, 94, 95, 120, 119, 62, 123, 63, 121, 78, 60, 61, 61, 54, 60, 61, 42, 47, 60, 62, 50, 60, 26, 71, 50, 49, 54, 60, 67, 53, 65, 54, 10, 55, 55, 68];
+
+        const volumeChartData = {
+            labels: volumeLabels,
+            datasets: [{
+                label: 'Execuções Puladas',
+                data: volumeExecucoes,
+                backgroundColor: '#FF2726', // Edify Red
+                borderColor: '#4219B5',
+                borderWidth: 1,
+                borderRadius: 5,
+                borderSkipped: false
+            }, {
+                label: 'Atividades Distintas',
+                data: volumeAtividades,
+                backgroundColor: '#4CD1F6', // Edify Light Blue
+                borderColor: '#4219B5',
+                borderWidth: 1,
+                borderRadius: 5,
+                borderSkipped: false
+            }]
+        };
+
+        let volumeChart = new Chart(volumeCtx, {
+            type: 'bar',
+            data: volumeChartData,
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutBounce'
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Sort functionality for volume table
+        document.getElementById('sortBy').addEventListener('change', function() {
+            const sortBy = this.value;
+            const tbody = document.getElementById('volumeTable').querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+
+            rows.sort((a, b) => {
+                let aVal, bVal;
+                if (sortBy === 'execucoes_puladas') {
+                    aVal = parseInt(a.cells[3].textContent);
+                    bVal = parseInt(b.cells[3].textContent);
+                } else if (sortBy === 'atividades_distintas') {
+                    aVal = parseInt(a.cells[2].textContent);
+                    bVal = parseInt(b.cells[2].textContent);
+                } else {
+                    aVal = a.cells[1].textContent;
+                    bVal = b.cells[1].textContent;
+                }
+                if (typeof aVal === 'string') {
+                    return aVal.localeCompare(bVal);
+                }
+                return bVal - aVal; // Descending
+            });
+
+            rows.forEach(row => tbody.appendChild(row));
+
+            // Update chart with sorted data
+            const sortedLabels = rows.map(row => row.cells[1].textContent);
+            const sortedExecucoes = rows.map(row => parseInt(row.cells[3].textContent));
+            const sortedAtividades = rows.map(row => parseInt(row.cells[2].textContent));
+
+            volumeChart.data.labels = sortedLabels;
+            volumeChart.data.datasets[0].data = sortedExecucoes;
+            volumeChart.data.datasets[1].data = sortedAtividades;
+            volumeChart.update();
+        });
+
+        // Make tables sortable by clicking headers
+        document.querySelectorAll('th').forEach(header => {
+            header.addEventListener('click', function() {
+                const table = header.closest('table');
+                const tbody = table.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+                const index = Array.from(header.parentNode.children).indexOf(header);
+                const isNumeric = header.textContent === 'Estudantes' || header.textContent === 'Total Execuções' || header.textContent === 'Atividades Únicas' || header.textContent === 'Atividades Distintas' || header.textContent === 'Execuções Puladas' || header.textContent === 'Total Atividades Realizadas' || header.textContent === 'Total Itens Realizados' || header.textContent === 'Itens Unicos Realizados';
+
+                rows.sort((a, b) => {
+                    const aVal = isNumeric ? parseFloat(a.cells[index].textContent.replace('%', '')) || parseInt(a.cells[index].textContent) : a.cells[index].textContent;
+                    const bVal = isNumeric ? parseFloat(b.cells[index].textContent.replace('%', '')) || parseInt(b.cells[index].textContent) : b.cells[index].textContent;
+                    if (isNumeric) {
+                        return aVal - bVal;
+                    }
+                    return aVal.localeCompare(bVal);
+                });
+
+                rows.forEach(row => tbody.appendChild(row));
+            });
+        });
+
+        // Impact Chart
+        const impactCtx = document.getElementById('impactChart').getContext('2d');
+        const impactData = {
+            labels: ['Greenhouse', 'Language 1', 'Language 8', 'Language 9', 'Language 6'],
+            datasets: [{
+                label: '% Atividades Skipped Yes',
+                data: [45.97, 24.84, 44.42, 41.84, 34.03],
+                backgroundColor: '#FF2726', // Edify Red
+                borderColor: '#4219B5',
+                borderWidth: 1,
+                borderRadius: 5,
+                borderSkipped: false
+            }, {
+                label: '% Atividades Skipped No',
+                data: [54.03, 75.16, 55.58, 58.16, 65.97],
+                backgroundColor: '#00AA9E', // Edify Green
+                borderColor: '#4219B5',
+                borderWidth: 1,
+                borderRadius: 5,
+                borderSkipped: false
+            }]
+        };
+
+        let impactChart = new Chart(impactCtx, {
+            type: 'bar',
+            data: impactData,
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutBounce'
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Filter for impact table
+        document.getElementById('volumeFilter').addEventListener('change', function() {
+            const selected = this.value;
+            const rows = document.querySelectorAll('#impactTable tbody tr');
+
+            rows.forEach(row => {
+                const volume = row.getAttribute('data-volume');
+                if (selected === 'all' || volume === selected) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            // Update chart based on filter
+            let filteredLabels, filteredYes, filteredNo;
+            if (selected === 'all') {
+                filteredLabels = ['Greenhouse', 'Language 1', 'Language 8', 'Language 9', 'Language 6'];
+                filteredYes = [45.97, 24.84, 44.42, 41.84, 34.03];
+                filteredNo = [54.03, 75.16, 55.58, 58.16, 65.97];
+            } else {
+                filteredLabels = [selected];
+                const index = ['Greenhouse', 'Language 1', 'Language 8', 'Language 9', 'Language 6'].indexOf(selected);
+                filteredYes = [45.97, 24.84, 44.42, 41.84, 34.03][index];
+                filteredNo = [54.03, 75.16, 55.58, 58.16, 65.97][index];
+            }
+            impactChart.data.labels = filteredLabels;
+            impactChart.data.datasets[0].data = Array.isArray(filteredYes) ? filteredYes : [filteredYes];
+            impactChart.data.datasets[1].data = Array.isArray(filteredNo) ? filteredNo : [filteredNo];
+            impactChart.update();
+        });
+    </script>
+</body>
+</html>
